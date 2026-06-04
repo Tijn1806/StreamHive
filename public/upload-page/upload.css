@@ -1,1 +1,81 @@
-
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+        .navbar .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .navbar .logo img {
+            width: 160px;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .navbar .logo span {
+            display: inline-block;
+            line-height: 1;
+        }
+        .navbar .icon-group {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .navbar .upload-button img,
+        .navbar .meldingen-button img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+        }
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar .nav-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar .search-form {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .search-input {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid #444;
+            border-radius: 4px 0 0 4px;
+            background: #ffffff;
+            color: #fff;
+            outline: none;
+            min-width: 220px;
+        }
+        .navbar .search-input::placeholder {
+            color: #bbb;
+        }
+        .navbar .search-button {
+            padding: 0.5rem 0.9rem;
+            border: 1px solid #444;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+            background-color: #FF0000;
+            color: #fff;
+            cursor: pointer;
+        }
