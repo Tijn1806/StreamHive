@@ -40,31 +40,10 @@ exit;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamHive</title>
     <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="/StreamHive/public/assets/navbar.css?v=1">
 </head>
 <body>
-    <nav class="navbar">
-        <a class="logo">
-            <img src="../main-page/StreamHive logo3.png" alt="StreamHive logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="../main-page/index.php">Home</a></li>
-            <li><a href="#">Trending</a></li>
-            <li><a href="#">Subscriptions</a></li>
-        </ul>
-        <div class="icon-group">
-            <a class="upload-button" href="#">
-                <img src="../main-page/Upload button.png" alt="Upload button">
-            </a>
-            <a class="meldingen-button" href="#">
-                <img src="../main-page/Meldingen.png" alt="Meldingen button">
-            </a>
-        </div>
-        <form class="search-form" action="zoekresultaten.php" method="get">
-            <input class="search-input" type="search" name="q" placeholder="Zoeken...">
-            <button class="search-button" type="submit">Zoek</button>
-        </form>
-    </nav>
-    
+    <?php require_once(__DIR__ . '/../../views/partials/navbar.php'); ?>
     <main>
         <h2>Upload Video</h2>
         <form method="post" enctype="multipart/form-data">

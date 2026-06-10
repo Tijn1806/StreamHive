@@ -16,32 +16,12 @@ $videos = $videoModel->all();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamHive</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/StreamHive/public/main-page/index.css?v=123">
+    <link rel="stylesheet" href="/StreamHive/public/assets/navbar.css?v=1">
 </head>
 <body>
-    <nav class="navbar">
-        <a class="logo">
-            <img src="StreamHive logo3.png" alt="StreamHive logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="../main-page/index.php">Home</a></li>
-            <li><a href="#">Trending</a></li>
-            <li><a href="#">Subscriptions</a></li>
-        </ul>
-        <div class="icon-group">
-            <a class="upload-button" href="../upload-page/upload.php">
-                <img src="Upload button.png" alt="Upload button">
-            </a>
-            <a class="meldingen-button" href="#">
-                <img src="Meldingen.png" alt="Meldingen button">
-            </a>
-        </div>
-        <form class="search-form" action="zoekresultaten.php" method="get">
-            <input class="search-input" type="search" name="q" placeholder="Zoeken...">
-            <button class="search-button" type="submit">Zoek</button>
-        </form>
-    </nav>
-
+    <?php require_once(__DIR__ . '/../../views/partials/navbar.php'); ?>
+<main>
     <section class="recommended">
     <h2>Recommended</h2>
 
@@ -49,7 +29,7 @@ $videos = $videoModel->all();
         <?php foreach ($videos as $video): ?>
             <div class="video-card">
                 <video width="300" controls>
-                    <source src="../../uploads/videos/<?= htmlspecialchars($video['filename']) ?>" type="video/mp4">
+                    <source src="/StreamHive/uploads/videos/<?= htmlspecialchars($video['filename']) ?>" type="video/mp4">
                     Je browser ondersteunt deze video niet.
                 </video>
 
@@ -58,5 +38,6 @@ $videos = $videoModel->all();
         <?php endforeach; ?>
     </div>
 </section>
+</main>
 </body>
 </html>
