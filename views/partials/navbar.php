@@ -26,7 +26,7 @@
     <?php endif; ?>
 </div>
 
-    <form class="search-form" action="#" method="get">
+    <form class="search-form" action="/StreamHive/public/search-page/zoekresultaten.php" method="get">
         <input class="search-input" type="search" name="q" placeholder="Zoeken...">
         <button class="search-button" type="submit">Zoek</button>
     </form>

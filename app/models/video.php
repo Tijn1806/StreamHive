@@ -61,6 +61,23 @@ class Video
         return $video ?: null;
     }
 
+    public function search(string $searchTerm): array
+{
+    $sql = "SELECT videos.*, users.email
+            FROM videos
+            JOIN users ON videos.user_id = users.id
+            WHERE title LIKE :search
+            ORDER BY created_at DESC";
+
+    $stmt = $this->pdo->prepare($sql);
+
+    $stmt->execute([
+        ':search' => '%' . $searchTerm . '%'
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
     /**
      * Alle video's ophalen
      */

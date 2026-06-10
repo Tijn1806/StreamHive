@@ -17,6 +17,9 @@ if (!isset($_GET['id'])) {
 $videoId = (int) $_GET['id'];
 $video = $videoModel->findById($videoId);
 
+$videoModel->addView($videoId);  //
+$video = $videoModel->findById($videoId);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'])) {
     if (isset($_POST['like'])) {
         $likeModel->toggle($_SESSION['user_id'], $videoId);
@@ -64,6 +67,9 @@ if (!$video) {
         <h1 class="video-title">
             <?= htmlspecialchars($video['title']) ?>
         </h1>
+        <p class="video-views">
+            <?= htmlspecialchars($video['weergaven']) ?> weergaven
+        </p>
         <p class="video-description">
             <?= htmlspecialchars($video['description']) ?>
         </p>
