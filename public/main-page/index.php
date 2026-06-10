@@ -28,13 +28,14 @@ $videos = $videoModel->all();
     <div class="video-grid">
         <?php foreach ($videos as $video): ?>
             <div class="video-card">
-                <video width="300" controls>
-                    <source src="/StreamHive/uploads/videos/<?= htmlspecialchars($video['filename']) ?>" type="video/mp4">
-                    Je browser ondersteunt deze video niet.
-                </video>
+    <a href="../watch-page/watch.php?id=<?= $video['id'] ?>">
+        <video muted>
+            <source src="/StreamHive/uploads/videos/<?= htmlspecialchars($video['filename']) ?>" type="video/mp4">
+        </video>
 
-                <h3><?= htmlspecialchars($video['title']) ?></h3>
-            </div>
+        <h3><?= htmlspecialchars($video['title']) ?></h3>
+    </a>
+</div>
         <?php endforeach; ?>
     </div>
 </section>
