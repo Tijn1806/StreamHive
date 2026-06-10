@@ -10,14 +10,21 @@
     </ul>
 
     <div class="icon-group">
-        <a class="upload-button" href="/StreamHive/public/upload-page/upload.php">
-            <img src="/StreamHive/public/main-page/Upload button.png" alt="Upload button">
-        </a>
 
-        <a class="meldingen-button" href="#">
-            <img src="/StreamHive/public/main-page/Meldingen.png" alt="Meldingen button">
+    <a class="upload-button" href="/StreamHive/public/upload-page/upload.php">
+        <img src="/StreamHive/public/main-page/Upload button.png" alt="Upload">
+    </a>
+
+    <a class="meldingen-button" href="#">
+        <img src="/StreamHive/public/main-page/Meldingen.png" alt="Meldingen">
+    </a>
+
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <a class="logout-button" href="/StreamHive/public/logout.php">
+            Logout
         </a>
-    </div>
+    <?php endif; ?>
+</div>
 
     <form class="search-form" action="#" method="get">
         <input class="search-input" type="search" name="q" placeholder="Zoeken...">
