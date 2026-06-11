@@ -6,9 +6,9 @@ class Video
     private PDO $pdo;
 
     // Constructor
-    public function __construct(PDO $pdo)
+    public function __construct(PDO $pdo)  
     {
-        $this->pdo = $pdo;
+        $this->pdo = $pdo;  // Dit slaat de pdo connectie op in een class
     }
 
     /**
@@ -17,21 +17,21 @@ class Video
     public function create(
         int $userId,
         string $title,
-        ?string $description,
+        ?string $description,  //? zorgt ervoor dat de parameter ook null mag zijn
         string $filename
     ): bool {
 
         // SQL query
-        $sql = "INSERT INTO videos
+        $sql = "INSERT INTO videos  
                 (user_id, title, description, filename, weergaven, created_at)
                 VALUES
-                (:user_id, :title, :description, :filename, 0, CURDATE())";
+                (:user_id, :title, :description, :filename, 0, CURDATE())";  //curdate() zorgt ervoor dat de datum automatisch wordt
 
         // Query voorbereiden
-        $stmt = $this->pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);  //prepare zorgt ervoor dat de query nog niet wordt uitgevoerd
 
         // Query uitvoeren
-        return $stmt->execute([
+        return $stmt->execute([  //hier wordt de query wel uitgevoerd
             ':user_id' => $userId,
             ':title' => $title,
             ':description' => $description,
@@ -56,12 +56,12 @@ class Video
             ':id' => $id
         ]);
 
-        $video = $stmt->fetch(PDO::FETCH_ASSOC);
+        $video = $stmt->fetch(PDO::FETCH_ASSOC);  //gegevens terug als een associatieve array dus eigen sleutels
 
         return $video ?: null;
     }
 
-    public function search(string $searchTerm): array
+    public function search(string $searchTerm): array  
 {
     $sql = "SELECT videos.*, users.email
             FROM videos
@@ -81,7 +81,7 @@ class Video
     /**
      * Alle video's ophalen
      */
-    public function all(): array
+    public function all(): array  //function all() geeft een array terug van alle videos
     {
         $sql = "SELECT videos.*, users.email
                 FROM videos
